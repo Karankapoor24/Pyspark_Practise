@@ -40,9 +40,8 @@ import pyspark.sql.functions as F
 
 spark = SparkSession.builder.appName("Q6").master("local").getOrCreate()
 
-data = [
-      ("S1", "P1", 100),
-      ("S1", "P2", 200),
+data = [("S1", "P1", 100),
+    ("S1", "P2", 200),
     ("S1", "P3", 300),
     ("S2", "P1", 400),
     ("S2", "P2", 100),

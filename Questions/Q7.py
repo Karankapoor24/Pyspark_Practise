@@ -15,7 +15,6 @@ Input
 
 
 """
-from Questions.Q6 import window_spec
 from pyspark.sql import SparkSession
 from pyspark.sql.types import StructType, StructField, IntegerType, StringType
 from pyspark.sql.window import Window
@@ -47,5 +46,12 @@ df.show()
 
 window_spec = Window.orderBy("record_date")
 
-prev_df = df.withColumn("last_dat_temp",F.lag())
+prev_df = df.withColumn("last_date_temp",F.lag("temprature").over(window_spec))
+
+prev_df.show()
+
+ans = prev_df.filter(F.col("temprature") > F.col("last_date_temp"))\
+      .select("id")
+
+ans.show()
 

@@ -109,7 +109,8 @@ hans_friends.show()
 
 ans = karl_friends.join(hans_friends,
                     karl_friends.friend_id == hans_friends.friend_id, "inner")\
-    .select("karl_friends.friend_id")
+    .select("k.friend_id").join(users_alias, F.col("k.friend_id") == F.col("u.user_id"))\
+    .select("k.friend_id", "u.user_name")
 
 ans.show()
 
