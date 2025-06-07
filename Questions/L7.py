@@ -5,6 +5,14 @@ The output should contain the week number of that Friday and average amount spen
 
 output
 
++----------+-----------+-------------+
+|      date|week_number|average_spent|
++----------+-----------+-------------+
+|2023-01-13|          2|        742.5|
+|2023-01-27|          4|        424.0|
+|2023-02-03|          5|        590.0|
+|2023-02-24|          8|        259.0|
++----------+-----------+-------------+
 
 """
 from pyspark.sql import SparkSession
